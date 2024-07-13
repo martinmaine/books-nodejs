@@ -53,17 +53,17 @@ router.get('/:id', getBook, async (req, res) => {
 
 // CREATE: Crear un nuevo libro [POST]
 router.post("/", async (req, res) => {
-  const { title, author, gender, publication_date } = req?.body;
-  if (!title || !author || !gender || !publication_date) {
+  const { title, author, genre, publication_date } = req?.body;
+  if (!title || !author || !genre || !publication_date) {
     return res.status(400).json({
       messege:
-        "Los campos title, author, gender, publication_date son obligatorios",
+        "Los campos title, author, genre, publication_date son obligatorios",
     });
   }
   const book = new Book({
     title,
     author,
-    gender,
+    genre,
     publication_date,
   });
   try {
